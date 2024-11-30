@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://ddjyyuwjn282v"
+path="res://.godot/imported/good_neighbors_unity.fnt-d6c8e4c5e824a1846978a31b0e413dbd.fontdata"
+
+[deps]
+
+source_file="res://assets/font/good_neighbors_unity.fnt"
+dest_files=["res://.godot/imported/good_neighbors_unity.fnt-d6c8e4c5e824a1846978a31b0e413dbd.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

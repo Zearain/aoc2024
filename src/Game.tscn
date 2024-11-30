@@ -1,6 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://bst25sg11otk8"]
+[gd_scene load_steps=8 format=4 uid="uid://bst25sg11otk8"]
 
 [ext_resource type="Script" path="res://src/Game.cs" id="1_veq1e"]
+[ext_resource type="PackedScene" uid="uid://bbt3smaa8yiop" path="res://src/Player.tscn" id="2_a2guh"]
+[ext_resource type="Texture2D" uid="uid://dir3swohjfar5" path="res://assets/tileset/BG/BG.png" id="3_0blje"]
+[ext_resource type="TileSet" uid="uid://bnf0pjks68mra" path="res://src/common/Terrain.tres" id="3_s4snw"]
+[ext_resource type="PackedScene" uid="uid://nh3i8effx1dc" path="res://src/days/BaseDay.tscn" id="4_rdmnm"]
+[ext_resource type="PackedScene" uid="uid://bcuxdqbeafffx" path="res://src/days/Day1.tscn" id="6_u21s0"]
+[ext_resource type="PackedScene" uid="uid://dvgkn2e4gpi5c" path="res://src/Killzone.tscn" id="8_nr2x3"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_veq1e")
+
+[node name="Player" parent="." instance=ExtResource("2_a2guh")]
+z_index = 5
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -99)
+position_smoothing_enabled = true
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Background" type="Node2D" parent="World"]
+position = Vector2(576, 324)
+
+[node name="Parallax2D" type="Parallax2D" parent="World/Background"]
+scale = Vector2(0.73, 0.73)
+scroll_scale = Vector2(0.1, 0)
+repeat_size = Vector2(1800, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Background/Parallax2D"]
+texture = ExtResource("3_0blje")
+
+[node name="StartingTerrain" type="TileMapLayer" parent="World"]
+z_index = 4
+tile_map_data = PackedByteArray("AAD+/wAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAD7/wAAAAAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD8/wEABAAAAAAAAAD9/wEABAAAAAAAAAD+/wEABAAAAAAAAAD//wEABAAAAAAAAAAAAAEABAAAAAAAAAD7/wEAAwAAAAAAAAD7/wIAAwAAAAAAAAD8/wIABAAAAAAAAAD9/wIABAAAAAAAAAD+/wIABAAAAAAAAAD//wIABAAAAAAAAAAAAAIABAAAAAAAAAD7/wMACwAAAAAAAAD8/wMACAAAAAAAAAD9/wMACAAAAAAAAAD+/wMACAAAAAAAAAD//wMACAAAAAAAAAAAAAMACAAAAAAAAAA=")
+tile_set = ExtResource("3_s4snw")
+
+[node name="Day1" parent="World" instance=ExtResource("4_rdmnm")]
+position = Vector2(128, 0)
+LevelScene = ExtResource("6_u21s0")
+
+[node name="EndingTerrain" type="TileMapLayer" parent="World"]
+z_index = 4
+position = Vector2(768, 0)
+tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAAAAAEABQAAAAAAAAAAAAIABQAAAAAAAAAAAAMADAAAAAAAAAA=")
+tile_set = ExtResource("3_s4snw")
+
+[node name="Killzone" parent="." instance=ExtResource("8_nr2x3")]

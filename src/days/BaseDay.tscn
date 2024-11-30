@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=4 uid="uid://nh3i8effx1dc"]
+
+[ext_resource type="Script" path="res://src/days/BaseDay.cs" id="1_4n174"]
+[ext_resource type="Texture2D" uid="uid://civnqeagsy2it" path="res://assets/tileset/Object/Igloo.png" id="2_cpr2c"]
+[ext_resource type="Texture2D" uid="uid://bltt7xadfw2es" path="res://assets/tileset/Object/Sign_2.png" id="3_b2lav"]
+[ext_resource type="FontFile" uid="uid://ddjyyuwjn282v" path="res://assets/font/good_neighbors_unity.fnt" id="4_0jei5"]
+[ext_resource type="TileSet" uid="uid://bnf0pjks68mra" path="res://src/common/Terrain.tres" id="4_yf82a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep52e"]
+size = Vector2(113.25, 89)
+
+[node name="BaseDay" type="Node2D"]
+script = ExtResource("1_4n174")
+
+[node name="Igloo" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(378, -99)
+texture = ExtResource("2_cpr2c")
+
+[node name="DaySign" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(61, -46)
+texture = ExtResource("3_b2lav")
+
+[node name="Text" type="RichTextLabel" parent="DaySign"]
+offset_left = -36.0
+offset_top = -20.0
+offset_right = 41.0
+offset_bottom = 20.0
+theme_override_fonts/normal_font = ExtResource("4_0jei5")
+theme_override_font_sizes/normal_font_size = 40
+text = "Day 00"
+
+[node name="Terrain" type="TileMapLayer" parent="."]
+z_index = 4
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAAAAEABAAAAAAAAAABAAEABAAAAAAAAAACAAEABAAAAAAAAAADAAEABAAAAAAAAAAEAAEABAAAAAAAAAAAAAIABAAAAAAAAAABAAIABAAAAAAAAAACAAIABAAAAAAAAAADAAIABAAAAAAAAAAEAAIABAAAAAAAAAAAAAMACAAAAAAAAAABAAMACAAAAAAAAAACAAMACAAAAAAAAAADAAMACAAAAAAAAAAEAAMACAAAAAAAAAA=")
+tile_set = ExtResource("4_yf82a")
+
+[node name="DoorArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
+position = Vector2(195.375, -45.5)
+shape = SubResource("RectangleShape2D_ep52e")
