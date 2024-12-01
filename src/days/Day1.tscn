@@ -1,3 +1,54 @@
-[gd_scene format=3 uid="uid://bcuxdqbeafffx"]
+[gd_scene load_steps=3 format=3 uid="uid://bcuxdqbeafffx"]
+
+[ext_resource type="Script" path="res://src/days/Day1.cs" id="1_aow3r"]
+[ext_resource type="FontFile" uid="uid://ddjyyuwjn282v" path="res://assets/font/good_neighbors_unity.fnt" id="2_n6y3r"]
 
 [node name="Day1" type="Node2D"]
+script = ExtResource("1_aow3r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Part1Container" type="VBoxContainer" parent="CanvasLayer/PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SolvePart1Button" type="Button" parent="CanvasLayer/PanelContainer/CenterContainer/HBoxContainer/Part1Container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n6y3r")
+theme_override_font_sizes/font_size = 50
+text = "Solve Part 1"
+
+[node name="Part1Solution" type="Label" parent="CanvasLayer/PanelContainer/CenterContainer/HBoxContainer/Part1Container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n6y3r")
+theme_override_font_sizes/font_size = 50
+
+[node name="Part2Container" type="VBoxContainer" parent="CanvasLayer/PanelContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SolvePart2Button" type="Button" parent="CanvasLayer/PanelContainer/CenterContainer/HBoxContainer/Part2Container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n6y3r")
+theme_override_font_sizes/font_size = 50
+text = "Solve Part 2"
+
+[node name="Part2Solution" type="Label" parent="CanvasLayer/PanelContainer/CenterContainer/HBoxContainer/Part2Container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n6y3r")
+theme_override_font_sizes/font_size = 50
