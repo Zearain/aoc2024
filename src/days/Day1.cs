@@ -26,9 +26,8 @@ public partial class Day1 : Node2D
     {
         InputLoader = new InputLoader();
 
-        _solvePart1Button.Pressed += () => SolvePart1();
-
-        _solvePart2Button.Pressed += () => SolvePart2();
+        _solvePart1Button.Pressed += SolvePart1;
+        _solvePart2Button.Pressed += SolvePart2;
     }
 
 
@@ -61,8 +60,7 @@ public partial class Day1 : Node2D
     public void SetInput(string input)
     {
         _input = input;
-        var lineSeparator = _input.Contains(System.Environment.NewLine) ? System.Environment.NewLine : "\n";
-        _lines = _input.Split(lineSeparator).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
+        _lines = InputSplitter.Lines(input);
     }
 
     public static (int[] Left, int[] Right) ParseCoordinateLists(string[] lines)
