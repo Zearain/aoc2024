@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bst25sg11otk8"]
+[gd_scene load_steps=10 format=4 uid="uid://bst25sg11otk8"]
 
 [ext_resource type="Script" path="res://src/Game.cs" id="1_veq1e"]
 [ext_resource type="PackedScene" path="res://src/Player.tscn" id="2_a2guh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://nh3i8effx1dc" path="res://src/days/BaseDay.tscn" id="4_rdmnm"]
 [ext_resource type="PackedScene" uid="uid://bcuxdqbeafffx" path="res://src/days/Day1.tscn" id="6_u21s0"]
 [ext_resource type="PackedScene" uid="uid://cwlgmppkinbkv" path="res://src/days/Day2.tscn" id="7_bhs2h"]
+[ext_resource type="PackedScene" uid="uid://c6gw3b310hcgh" path="res://src/days/Day3.tscn" id="8_j2iaj"]
 [ext_resource type="PackedScene" path="res://src/Killzone.tscn" id="8_nr2x3"]
 
 [node name="Game" type="Node2D"]
@@ -47,9 +48,14 @@ position = Vector2(768, 0)
 DayNumber = 2
 LevelScene = ExtResource("7_bhs2h")
 
+[node name="Day3" parent="World" instance=ExtResource("4_rdmnm")]
+position = Vector2(1408, 0)
+DayNumber = 3
+LevelScene = ExtResource("8_j2iaj")
+
 [node name="EndingTerrain" type="TileMapLayer" parent="World"]
 z_index = 4
-position = Vector2(1408, 0)
+position = Vector2(2048, 0)
 tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAAAAAEABQAAAAAAAAAAAAIABQAAAAAAAAAAAAMADAAAAAAAAAA=")
 tile_set = ExtResource("3_s4snw")
 
